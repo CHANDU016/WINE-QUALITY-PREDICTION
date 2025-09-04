@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINE QUALITY PREDICTION</title>
+    <style>
+
+        body {
+        font-family:Arial, sans-serif;
+        background:url("{{url_for('static', filename='background.jpeg')}}") no repeat center center fixed;
+        background-size:cover;
+        margin:0,
+        padding:0,
+        color:white;
+
+        }
+
+        .container {
+        background: rgba(0,0,0,0.7);
+        max-width: 800px;
+        margin:50px auto;
+        padding: 20px;
+        border-radius:15px;
+        text-align:center;
+        }
+
+        h1 {
+        margin-bottom:20px;
+        color:#ffcc00;
+
+        }
+
+        form {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:15px;
+        margin-bottom:20px;
+        }
+
+        input[type="number"] {
+        padding:10px;
+        border-radius:80px;
+        border:none;
+        width:100%;
+        }
+        .buttons {
+            grid-column: span 2;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+
+
+        button {
+
+        padding:10px 20px
+        border-radius:8px;
+        border:none;
+        cursor:pointer;
+        font-size:16px;
+        }
+        .submit-btn {
+        background: #28a745;
+        color: white;
+        }
+        .clear-btn {
+         background: #dc3545;
+         color: white;
+        }
+        .graphs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .graphs img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px black;
+        }
+
+    </style>
+</head>
+<body>
+       <div class="container">
+           <h1> Wine Test Report parameter</h1>
+
+           <form method="POST" action="/predict">
+               <input type="number" step="any" name="fixed_acidity" placeholder="Fixed Acidity" required>
+               <input type="number" step="any" name="volatile_acidity" placeholder="Volatile Acidity" required>
+               <input type="number" step="any" name="citric_acid" placeholder="Citric Acid" required>
+               <input type="number" step="any" name="residual_sugar" placeholder="Residual Sugar" required>
+               <input type="number" step="any" name="chlorides" placeholder="Chlorides" required>
+               <input type="number" step="any" name="free_sulfur_dioxide" placeholder="Free Sulfur Dioxide" required>
+               <input type="number" step="any" name="total_sulfur_dioxide" placeholder="Total Sulfur Dioxide" required>
+               <input type="number" step="any" name="density" placeholder="Density" required>
+               <input type="number" step="any" name="ph" placeholder="pH" required>
+               <input type="number" step="any" name="sulphates" placeholder="Sulphates" required>
+               <input type="number" step="any" name="alcohol" placeholder="Alcohol" required>
+
+                <div class="buttons">
+                <button type="submit" class="submit-btn">Predict</button>
+                <button type="reset" class="clear-btn">Clear</button>
+            </div>
+
+
+</form>
+
+
+           <div class="graphs">
+
+               <h1> PRDICTION OF DATA ACCORDING TO THE BELOW ANALYSIS</h1>
+            <img src="{{ url_for('static', filename='winr quality vs count.png') }}" alt="Wine quality vs count">
+            <img src="{{ url_for('static', filename='Quality vs Alcohol.png') }}" alt="Quality vs Alcohol">
+            <img src="{{ url_for('static', filename='quality vs citric acid.png') }}" alt="quality vs critic acid">
+            <img src="{{ url_for('static', filename='Quality vs Volatile acidity.png') }}" alt="Quality vs Volatile acidity">
+        </div>
+    </div>
+</body>
+</html>
+       </div>
+
+</body>
+</html>
